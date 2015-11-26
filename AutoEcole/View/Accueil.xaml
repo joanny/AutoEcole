@@ -1,0 +1,63 @@
+﻿<Window x:Class="AutoEcole.View.Accueil"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:GE="clr-namespace:AutoEcole.View"
+        xmlns:vm="clr-namespace:AutoEcole.ViewModel"
+        Title="Accueil" Height="500" Width="800">
+
+    <Grid  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>        
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Canvas Grid.Column="0" Grid.Row="1">
+                <Button x:Name="button"  Click="lecon_Click" Content="Leçons" HorizontalAlignment="Left" Margin="50,25,0,0" VerticalAlignment="Top" Width="140" Height="41.96">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                            <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                            <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                            <GradientStop Color="#FF004914" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="button1" Content="Vehicules" Click="vehicule_Click" Command="{Binding ShowVehicule}" HorizontalAlignment="Left" Margin="50,85,0,0" VerticalAlignment="Top" Width="140" Height="36.96">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                            <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                            <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                            <GradientStop Color="#FFCB1D1D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="button2" Content="Eleves" Click="eleve_Click"  HorizontalAlignment="Left" Margin="50,135,0,0" VerticalAlignment="Top" Width="140" Height="35">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                            <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                            <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                            <GradientStop Color="#FFE0E00D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Canvas>
+            <GE:GestionEleve Visibility="Visible" Grid.Row="1"  x:Name="ucGestionEleve" Margin="280,15,-580,-315"   />
+            <GE:GestionVehicule  Visibility="Hidden" Grid.Row="1"  x:Name="ucGestionVehicule" Margin="280,15,-580,-315"   />
+        </Grid>
+    </Grid>
+</Window>
